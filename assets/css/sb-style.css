@@ -1,0 +1,182 @@
+/* ==========================================================
+   SB Contract & Animation - Front-end styles
+   ========================================================== */
+
+.sbca-hero {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	padding: 60px 20px;
+	text-align: center;
+}
+
+.sbca-hero-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.25);
+	pointer-events: none;
+}
+
+.sbca-hero-inner {
+	position: relative;
+	z-index: 2;
+	max-width: 760px;
+}
+
+.sbca-hero-title {
+	font-size: clamp(2rem, 5vw, 3.4rem);
+	font-weight: 800;
+	margin: 0 0 18px;
+	line-height: 1.15;
+}
+
+.sbca-hero-subtitle {
+	font-size: clamp(1rem, 2vw, 1.25rem);
+	margin: 0 0 28px;
+	opacity: 0.95;
+}
+
+.sbca-hero-btn {
+	display: inline-block;
+	padding: 14px 34px;
+	border-radius: 40px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.sbca-hero-btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+	filter: brightness(1.05);
+}
+
+/* Animation variants - base state, JS adds .sbca-in-view to trigger */
+.sbca-anim-fade-up .sbca-hero-title,
+.sbca-anim-fade-up .sbca-hero-subtitle,
+.sbca-anim-fade-up .sbca-hero-btn {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.sbca-anim-zoom-in .sbca-hero-title,
+.sbca-anim-zoom-in .sbca-hero-subtitle,
+.sbca-anim-zoom-in .sbca-hero-btn {
+	opacity: 0;
+	transform: scale(0.85);
+	transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.sbca-anim-slide-left .sbca-hero-title,
+.sbca-anim-slide-left .sbca-hero-subtitle,
+.sbca-anim-slide-left .sbca-hero-btn {
+	opacity: 0;
+	transform: translateX(-60px);
+	transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.sbca-hero.sbca-in-view .sbca-hero-title,
+.sbca-hero.sbca-in-view .sbca-hero-subtitle,
+.sbca-hero.sbca-in-view .sbca-hero-btn {
+	opacity: 1;
+	transform: none;
+}
+
+.sbca-hero.sbca-in-view .sbca-hero-subtitle { transition-delay: 0.15s; }
+.sbca-hero.sbca-in-view .sbca-hero-btn { transition-delay: 0.3s; }
+
+.sbca-anim-typewriter .sbca-hero-title {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	border-right: 3px solid currentColor;
+	width: 0;
+}
+
+.sbca-anim-typewriter.sbca-in-view .sbca-hero-title {
+	animation: sbca-typewriter 2s steps(40, end) forwards, sbca-blink 0.75s step-end infinite;
+}
+
+@keyframes sbca-typewriter {
+	from { width: 0; }
+	to { width: 100%; }
+}
+
+@keyframes sbca-blink {
+	50% { border-color: transparent; }
+}
+
+/* ---------------- Contract Form ---------------- */
+.sbca-form-wrap {
+	max-width: 600px;
+	margin: 40px auto;
+	padding: 30px;
+	border-radius: 12px;
+	background: #ffffff;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.sbca-form-title {
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-size: 1.6rem;
+}
+
+.sbca-form-row {
+	margin-bottom: 16px;
+	text-align: left;
+}
+
+.sbca-form-row label {
+	display: block;
+	margin-bottom: 6px;
+	font-weight: 600;
+}
+
+.sbca-form-row input,
+.sbca-form-row textarea {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid #d1d5db;
+	border-radius: 8px;
+	font-size: 1rem;
+	box-sizing: border-box;
+}
+
+.sbca-form-submit {
+	width: 100%;
+	padding: 13px;
+	border: none;
+	border-radius: 8px;
+	background: #6366f1;
+	color: #fff;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background 0.2s ease;
+}
+
+.sbca-form-submit:hover {
+	background: #4f46e5;
+}
+
+.sbca-notice {
+	padding: 12px 16px;
+	border-radius: 8px;
+	margin-bottom: 18px;
+	font-weight: 600;
+}
+
+.sbca-notice-success {
+	background: #dcfce7;
+	color: #166534;
+}
+
+.sbca-notice-error {
+	background: #fee2e2;
+	color: #991b1b;
+}
